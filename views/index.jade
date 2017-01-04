@@ -1,0 +1,21 @@
+extends layout
+
+block content
+	.container.main-content
+		.row
+			.col-lg-4.col-lg-offset-4.col-md-6.col-md-offset-3.col-xs-12
+				form.well(method='get', action='/')
+					.input-group
+						input.form-control(type='text', name='palindrome')
+						span.input-group-btn
+							button.btn.btn-primary(type='submit') Check
+					br
+					if success != null
+						if success
+							.alert.alert-success(role='alert') Congratulations! 
+								b '#{text}'
+								|   is a palindrome.
+						if !success
+							.alert.alert-danger(role='alert') Sorry! 
+								b '#{text}' 
+								|   is NOT a palindrome.
